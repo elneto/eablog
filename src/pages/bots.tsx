@@ -20,7 +20,11 @@ const Bots = () => {
           At some point I enjoyed making Twitter bots
         </p>
         <ul>
-          <li><a href="https://twitter.com/freemanhattan">@freemanhattan</a>: Scraps craigslist free items in Manhattan</li>
+          <li><a href="https://twitter.com/DiaDeTuSanto">@DiaDeTuSanto</a>: Tuitea los santos del Día. <a href="https://github.com/elneto/santos">Source.</a></li>
+          <li><a href="https://twitter.com/freemanhattan">@freemanhattan</a>: Scraps craigslist free items in Manhattan.</li>
+          <li><a href="https://twitter.com/free_stof">Free in Astoria</a>: Scraps craigslist free items in Astoria.</li>
+          <li><a href="https://twitter.com/Jalil_Gibran">@Jalil_Gibran</a>: Dichos diarios del poeta del Líbano.</li>
+          <li>And a bunch more that Twitter deactivated. 🙄</li>
         </ul>
       </AnimatedBox>
     </Layout>
