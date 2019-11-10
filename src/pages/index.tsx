@@ -160,7 +160,7 @@ export const query = graphql`
         }
       }
     }
-    aboutUs: file(sourceInstanceName: { eq: "images" }, name: { eq: "about-us" }) {
+    aboutUs: file(sourceInstanceName: { eq: "images" }, name: { eq: "berlin" }) {
       childImageSharp {
         fluid(quality: 95, maxWidth: 1200) {
           ...GatsbyImageSharpFluid_withWebp
