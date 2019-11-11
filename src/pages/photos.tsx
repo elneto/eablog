@@ -56,15 +56,16 @@ const Photos: React.FunctionComponent<PageProps> = ({ data: { projects } }) => {
 export default Photos
 
 export const query = graphql`
-  query Projects {
-    projects: allProjectsYaml {
+  query Photo {
+    projects: allProjectsYaml(filter: {category: {regex: "/Photo/"}}) {
       nodes {
         title
         slug
+        category
         cover {
           childImageSharp {
             fluid(quality: 95, maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp
+              src
             }
           }
         }

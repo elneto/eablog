@@ -108,11 +108,10 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images, 
         <Category style={categoryAnimation}>{project.category}</Category>
         <animated.h1 style={titleAnimation}>{project.title_detail}</animated.h1>
         <Description style={descAnimation}>
-          <div dangerouslySetInnerHTML={{ __html: project.desc }} />
           {md !== null ?
            <div dangerouslySetInnerHTML={{ __html: md.html }} />
            :
-            <></>
+           <div dangerouslySetInnerHTML={{ __html: project.desc }} /> 
           }
         </Description>
         
