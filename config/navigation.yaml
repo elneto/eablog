@@ -4,6 +4,8 @@
   link: "/photos"
 - name: "Projects"
   link: "/projects"
+- name: "Music"
+  link: "/music"
 - name: "Instagram"
   link: "/instagram"
 - name: "About"
