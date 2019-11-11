@@ -84,7 +84,7 @@ type PageProps = {
   }
 }
 
-const Project: React.FunctionComponent<PageProps> = ({ data: { project, images } }) => {
+const Project: React.FunctionComponent<PageProps> = ({ data: { project, images, md } }) => {
   const categoryAnimation = useSpring({
     config: config.slow,
     from: { opacity: 0, transform: 'translate3d(0, -30px, 0)' },
@@ -94,7 +94,6 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
   const titleAnimation = useSpring({ config: config.slow, delay: 300, from: { opacity: 0 }, to: { opacity: 1 } })
   const descAnimation = useSpring({ config: config.slow, delay: 600, from: { opacity: 0 }, to: { opacity: 1 } })
   const imagesAnimation = useSpring({ config: config.slow, delay: 800, from: { opacity: 0 }, to: { opacity: 1 } })
-
   return (
     <Layout color={project.color}>
       <SEO
@@ -110,7 +109,13 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
         <animated.h1 style={titleAnimation}>{project.title_detail}</animated.h1>
         <Description style={descAnimation}>
           <div dangerouslySetInnerHTML={{ __html: project.desc }} />
+          {md !== null ?
+           <div dangerouslySetInnerHTML={{ __html: md.html }} />
+           :
+            <></>
+          }
         </Description>
+        
       </PBox>
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
@@ -120,10 +125,11 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
         </PBox>
       </Content>
       <PBox style={{ textAlign: 'center' }} py={10} px={[6, 6, 8, 10]}>
-        <h2>Want to start your own project?</h2>
-        <PButton color={project.color} py={4} px={8}>
-          Contact Us
-        </PButton>
+        <a href="mailto:yo@ernestoaraiza.com">
+          <PButton color={project.color} py={4} px={8}>
+            Write me: "I hope this email finds you well".
+          </PButton>
+        </a>
       </PBox>
     </Layout>
   )
@@ -133,7 +139,7 @@ export default Project
 
 export const query = graphql`
   query ProjectTemplate($slug: String!, $images: String!) {
-    project: projectsYaml(slug: { eq: $slug }) {
+    project: projectsYaml(slug: {eq: $slug}) {
       title_detail
       color
       category
@@ -153,7 +159,7 @@ export const query = graphql`
         }
       }
     }
-    images: allFile(filter: { relativePath: { regex: $images } }, sort: { fields: name, order: ASC }) {
+    images: allFile(filter: {relativePath: {regex: $images}, extension: {regex: "/(jpeg|jpg|gif|png)/"}}, sort: {fields: name, order: ASC}) {
       nodes {
         name
         childImageSharp {
@@ -163,5 +169,13 @@ export const query = graphql`
         }
       }
     }
-  }
+    md: markdownRemark(frontmatter: { slug: { eq: $slug} }) {
+        html
+        frontmatter {
+          date(formatString: "D MMM, YYYY")
+          slug
+          title
+        }
+      }
+    }
 `

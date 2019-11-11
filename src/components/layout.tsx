@@ -229,7 +229,7 @@ const Layout = ({ children, color }: LayoutProps) => {
               justifyContent="space-between"
             >
               <Box width={['3rem', '4rem', '5rem', '6rem']}>
-                <Link to="/" aria-label="LekoArts, Back to Home">
+                <Link to="/" aria-label="Back to Home">
                   <Logo />
                 </Link>
               </Box>
@@ -251,8 +251,7 @@ const Layout = ({ children, color }: LayoutProps) => {
           </SideBarInner>
           <Main>{children}</Main>
           <Footer color={color}>
-            <Box p={[6, 6, 8]} fontSize={0}>
-              Starter by <a href="https://www.lekoarts.de/en">LekoArts</a>.<br />
+            <Box p={[6, 6, 8]} fontSize={0}>              
               <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">Source</a>.
             </Box>
           </Footer>

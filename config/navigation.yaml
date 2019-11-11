@@ -1,7 +1,5 @@
 - name: "Photos"
   link: "/photos"
-- name: "Bots"
-  link: "/bots"
 - name: "Instagram"
   link: "/instagram"
 - name: "About"

@@ -15,7 +15,6 @@ export default () => {
     }
   }
   `)
-  console.log(data)
   return (
     <Img fluid={data.me.childImageSharp.fluid} alt="Ernesto" title="Este soy yo"/>
   )
