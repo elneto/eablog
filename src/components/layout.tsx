@@ -90,8 +90,8 @@ const GlobalStyles = createGlobalStyle`
   ${reset}
 `
 
-const isPartiallyActive = ({ isPartiallyCurrent }: { isPartiallyCurrent: boolean }) =>
-  isPartiallyCurrent ? { className: 'navlink-active navlink' } : { className: 'navlink' }
+const isPartiallyActive = ({ isCurrent }: { isCurrent: boolean }) =>
+  isCurrent ? { className: 'navlink-active navlink' } : { className: 'navlink' }
 
 const PartialNavLink = ({ children, to, ...rest }: { children: React.ReactNode; to: string }) => (
   <Link getProps={isPartiallyActive} to={to} {...rest}>
@@ -252,7 +252,7 @@ const Layout = ({ children, color }: LayoutProps) => {
           <Main>{children}</Main>
           <Footer color={color}>
             <Box p={[6, 6, 8]} fontSize={0}>              
-              <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">Source</a>.
+              {/* <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">Source</a>. */}
             </Box>
           </Footer>
         </Wrapper>
