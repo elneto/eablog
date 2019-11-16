@@ -2,16 +2,12 @@ version: 0.1
 frontend:
   phases:
     # IMPORTANT - Please verify your build commands
-    install:
-        commands: 
-            - npm install -g gatsby
-    pre_build:
-        commands: 
-            - npm ci --production
     build:
         commands: 
+            - npm install -g gatsby
+            - npm ci --production
             - npm run build
-    post_build:
+    postBuild:
         commands: 
             - npm run deploy
     #build:
