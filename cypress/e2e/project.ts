@@ -5,23 +5,23 @@
 describe('project', () => {
   beforeEach(() => {
     cy.visit('/')
-      .findByLabelText(/view project "breakfast"/i)
+      .findByLabelText(/View project "New York"/i)
       .click({ force: true })
       .waitForRouteChange()
   })
 
   it('should be linked from the index page', () => {
-    cy.assertRoute('/breakfast')
+    cy.assertRoute('/newyork')
   })
   it('should have a category, title, description', () => {
-    cy.findByText(/photography/i)
-      .findAllByText(/Breakfast - The most important time of the day/i)
-      .findByText(/The first meal of the day./i)
+    cy.findByText(/Photo, NY/i)
+      .findAllByText(/If you can make it there, you can make it anywhere/i)
+      .findByText(/Random photos in NY/i)
   })
   it('should have images', () => {
-    cy.findByAltText(/projects-breakfast-003/i)
+    cy.findByAltText(/dsc_0006/i)
   })
   it('should have a contact button', () => {
-    cy.findByText(/contact us/i)
+    cy.findByText(/Write me/i)
   })
 })
