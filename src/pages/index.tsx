@@ -31,19 +31,19 @@ const Area = styled(animated.div)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 35vw 40vw 25vw;
-  grid-template-areas:
-    'first-project about-us about-us'
+  grid-template-areas:    
     'three-projects three-projects three-projects'
+    'first-project about-us about-us'
     'instagram instagram instagram';
 
   @media (max-width: ${props => props.theme.breakpoints[3]}) {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 35vw 30vw 30vw 25vw;
 
-    grid-template-areas:
+    grid-template-areas:      
+      'three-projects three-projects three-projects three-projects'
+      'three-projects three-projects three-projects three-projects'
       'first-project first-project about-us about-us'
-      'three-projects three-projects three-projects three-projects'
-      'three-projects three-projects three-projects three-projects'
       'instagram instagram instagram instagram';
   }
 
@@ -51,11 +51,11 @@ const Area = styled(animated.div)`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 38vw);
 
-    grid-template-areas:
+    grid-template-areas:      
+      'three-projects three-projects'
+      'three-projects three-projects'
+      'three-projects three-projects'
       'first-project about-us'
-      'three-projects three-projects'
-      'three-projects three-projects'
-      'three-projects three-projects'
       'instagram instagram';
   }
 
@@ -63,12 +63,12 @@ const Area = styled(animated.div)`
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 50vw);
 
-    grid-template-areas:
+    grid-template-areas:      
+      'three-projects'
+      'three-projects'
+      'three-projects'
       'first-project'
       'about-us'
-      'three-projects'
-      'three-projects'
-      'three-projects'
       'instagram';
   }
 `
@@ -107,14 +107,6 @@ const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, three
     <Layout>
       <SEO />
       <Area style={pageAnimation}>
-        <FirstProject to={firstProject.slug} aria-label={`View project "${firstProject.title}"`}>
-          <Img fluid={firstProject.cover.childImageSharp.fluid} />
-          <span>{firstProject.title}</span>
-        </FirstProject>
-        <AboutUs to="/about" aria-label="Visit my about page">
-          <Img fluid={aboutUs.childImageSharp.fluid} />
-          <span>About</span>
-        </AboutUs>
         <ThreeProjects>
           {threeProjects.nodes.map(project => (
             <GridItem to={project.slug} key={project.slug} aria-label={`View project "${project.title}"`}>
@@ -123,6 +115,14 @@ const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, three
             </GridItem>
           ))}
         </ThreeProjects>
+        <FirstProject to={firstProject.slug} aria-label={`View project "${firstProject.title}"`}>
+          <Img fluid={firstProject.cover.childImageSharp.fluid} />
+          <span>{firstProject.title}</span>
+        </FirstProject>
+        <AboutUs to="/about" aria-label="Visit my about page">
+          <Img fluid={aboutUs.childImageSharp.fluid} />
+          <span>About</span>
+        </AboutUs>
         <Instagram to="/instagram" aria-label="See my Instagram pictures">
           <Img fluid={instagram.childImageSharp.fluid} />
           <span>Instagram</span>
