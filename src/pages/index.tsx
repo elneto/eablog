@@ -147,7 +147,7 @@ export const query = graphql`
         }
       }
     }
-    threeProjects: allProjectsYaml(limit: 4, skip: 1) {
+    threeProjects: allProjectsYaml(limit: 20, skip: 1) {
       nodes {
         title
         slug
