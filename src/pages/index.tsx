@@ -49,7 +49,7 @@ const Area = styled(animated.div)`
 
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(8, 38vw);
+    grid-template-rows: repeat(8, 50vw);
 
     grid-template-areas:      
       'three-projects three-projects'
@@ -64,9 +64,15 @@ const Area = styled(animated.div)`
 
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 50vw);
+    grid-template-rows: repeat(12, 50vw);
 
     grid-template-areas:      
+      'three-projects'
+      'three-projects'
+      'three-projects'
+      'three-projects'
+      'three-projects'
+      'three-projects'
       'three-projects'
       'three-projects'
       'three-projects'
