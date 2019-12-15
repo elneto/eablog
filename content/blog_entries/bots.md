@@ -1,6 +1,6 @@
 ---
 slug: "bots"
-date: "2019-11-10"
+date: "2014-04-02"
 ---     
 At some point I enjoyed making Twitter bots
         
